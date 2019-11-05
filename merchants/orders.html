@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>订单列表</title>
+    <link rel="stylesheet" href="./css/orders/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="main_div" v-cloak>
+        <van-nav-bar title="订单列表">
+        </van-nav-bar>
+        <van-tabs v-model="active" swipe-threshold="4" sticky animated @click="tabs" v-if="title.length>0">
+            <van-tab :title="d" v-for="(d, index) in title" :key="index">
+                <div class="order" v-if="orderList.length>0">
+                    <div class="order-item" v-for="(item, index) in orderList" :key="index" @click="toDetail(item)">
+                        <div class="item-top">
+                            <div class="top-left">
+                                <div style="margin-bottom:5px;">订单编号：{{item.orderNo}}</div>
+                                <div>创建时间：{{item.createtime}}</div>
+                            </div>
+                            <div class="top-right" style="text-align: right;">
+                                <div style="margin-bottom:5px;">
+                                    <span v-if="item.status == 'A'">待支付</span>
+                                    <span v-else-if="item.status == 'C'">待支付</span>
+                                    <span v-else-if="item.status == 'Y'">已上传支付凭证</span>
+                                    <span v-else-if="item.status == 'P'">待发货</span>
+                                    <span
+                                        v-else-if="item.status == 'R' || item.status == 'X' || item.status == 'F'">待收货</span>
+                                    <span v-else-if="item.status == 'E'">已完成</span>
+                                    <span v-else-if="item.status == 'S'">申请退货</span>
+                                    <span v-else-if="item.status == 'T'">退货成功</span>
+                                    <span v-else-if="item.status == 'Q'">退货失败</span>
+                                    <span v-else>全部</span>
+                                </div>
+                            </div>
+                        </div>
+                        <template>
+                            <van-card class="commodity_card" :title="item.title">
+                                <van-image v-if="item.picGoods" class="commodity_img" slot="thumb" fit="contain"
+                                    width="100%" height="auto" :src="item.picGoods">
+                                </van-image>
+                                <div slot="tags">
+                                    <div class="commodity_priceIdentify" v-if="item.isIdentify==='1'">
+                                        鉴定费:￥{{item.priceIdentify}}</div>
+                                    <div class="commodity_priceIdentify">代购费:￥{{item.pricePurchase}}</div>
+                                </div>
+                                <div class="commodity_totalPrices" slot="num">
+                                    <div>￥ {{item.priceGoods}}</div>
+                                    <div class="commodity_number">x1</div>
+                                </div>
+                            </van-card>
+                        </template>
+                        <div class="item-bottom">
+                            <div class="bottom-left">共1
+                                件商品，合计：￥ <span v-if="item.totalPrice" v-html="item.totalPrice"></span>
+                            </div>
+                        </div>
+                        <div class="item-button">
+                            <van-button style="margin-right:10px;" type="primary" @click.stop="refuse(item)"
+                                v-if="item.status == 'S'">不同意
+                            </van-button>
+                            <van-button style="margin-right:10px;" type="primary" @click.stop="confirm(item)"
+                                v-if="item.status == 'S'">同意
+                            </van-button>
+                            <van-button style="margin-right:10px;" type="primary" @click.stop="merchant(item)"
+                                v-if="item.status == 'P'">发货
+                            </van-button>
+                        </div>
+                    </div>
+                </div>
+            </van-tab>
+        </van-tabs>
+        <van-dialog class="account_dialog" v-model="showPayment" title="发货" show-cancel-button confirm-button-text="发货"
+            confirm-button-color="#fff" @confirm="confirmPayment">
+            <van-field v-model="merchantExpressNo" type="textarea" label="物流单号" placeholder="请输入发货物流单号" rows="1"
+                autosize>
+            </van-field>
+            <div class="order_upload">
+                <div class="upload_top">上传物流单 <span>（最多1张）</span></div>
+                <div class="upload_img">
+                    <van-uploader v-model="fileList" multiple :max-count="1">
+                        <van-image class="commodity_img" slot="thumb" fit="contain" width="2.453333rem"
+                            height="2.453333rem" src="./img/order_detail_1.png">
+                        </van-image>
+                    </van-uploader>
+                </div>
+            </div>
+        </van-dialog>
+        <van-dialog class="account_dialog" v-model="showUser" title="拒绝退货" show-cancel-button confirm-button-text="拒绝退货"
+            confirm-button-color="#fff" @confirm="confirmUser">
+            <van-field v-model="merchantRemark" type="textarea" label="拒绝原因" placeholder="请输入拒绝原因" rows="1" autosize>
+            </van-field>
+            <div class="order_upload">
+                <div class="upload_top">上传凭证 <span>（最多3张）</span></div>
+                <div class="upload_img">
+                    <van-uploader v-model="fileList" multiple :max-count="3">
+                        <van-image class="commodity_img" slot="thumb" fit="contain" width="2.453333rem"
+                            height="2.453333rem" src="./img/order_detail_1.png">
+                        </van-image>
+                    </van-uploader>
+                </div>
+            </div>
+        </van-dialog>
+    </div>
+    <script src="./js/orders/index.js"></script>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+</body>
+
+</html>

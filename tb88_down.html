@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>引导下载</title>
+    <script src="./customer/config/flexible.js"></script>
+</head>
+<style>
+    .index_goods img {
+        width: 8.4rem;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: .4rem;
+    }
+</style>
+
+<body>
+    <div class="index_bg">
+        <img style="flex-shrink: 0; position: absolute; z-index:10;" width="100%" height="calc(100vh)"
+            src="./customer/img/down_bg.png" />
+        <div class="index_goods" style="position: absolute; z-index:11; bottom: 2rem">
+            <img src="./customer/img/down_android.png" alt="">
+            <img src="./customer/img/down_ios.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

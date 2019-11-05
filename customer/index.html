@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>商品详情</title>
+    <link rel="stylesheet" href="./css/index/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="page" v-cloak>
+        <van-nav-bar title="商品详情" left-arrow @click-left="onClickLeft"></van-nav-bar>
+        <div class="index_bg">
+            <!-- item.picGoods -->
+            <van-image style="flex-shrink: 0; position: relative; z-index:10;" width="100%" src="./img/down_bg.png">
+            </van-image>
+            <div class="index_goods" style="position: absolute; z-index:11;">
+                <div class="goods_title">
+                    {{item.title}}
+                </div>
+                <div class="goods_price">
+                    <span class="price_one">直播价:</span>
+                    <span class="price_two" style="color: #FF1E1E;margin-right:.48rem;">￥{{item.priceGoods}}</span>
+                    <span class="price_three"
+                        style="text-decoration:line-through;color:rgba(153,153,153,1);">￥{{item.totalPrice}}</span>
+                </div>
+                <div class="goods_remain">七天无理由退货</div>
+                <van-button @click="buy">立即购买</van-button>
+            </div>
+        </div>
+    </div>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+    <script src="./js/index/index.js"></script>
+</body>
+
+</html>

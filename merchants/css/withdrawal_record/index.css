@@ -1,0 +1,48 @@
+html {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background: #EFEFF4 !important;
+  min-height: calc(100vh);
+}
+html [v-cloak] {
+  display: none;
+}
+html .main_div {
+  position: relative;
+}
+html .main_div .main_top {
+  height: 2rem;
+  background: linear-gradient(to right, #48a748, #20da92);
+  color: #fff;
+  padding: .8rem 0;
+  text-align: center;
+  font-size: .4rem;
+}
+html .main_div .main_top .top-two {
+  margin: 5px 0px;
+  font-size: .8rem;
+}
+html .main_div .recoed_item {
+  background: #fff;
+  padding: .266667rem;
+  margin: .266667rem;
+  border-radius: .133333rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+html .main_div .recoed_item .item_top,
+html .main_div .recoed_item .item_bottom {
+  color: #666;
+  font-size: .373333rem;
+  margin: .133333rem 0;
+}
+html .main_div .recoed_item .item_top .item_status,
+html .main_div .recoed_item .item_bottom .item_status {
+  margin-bottom: 6px;
+}
+html .main_div .recoed_item .item_top .item_status span,
+html .main_div .recoed_item .item_bottom .item_status span {
+  color: red;
+}

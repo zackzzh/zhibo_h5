@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>银行转账</title>
+    <link rel="stylesheet" href="./css/bank_transfer/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="page" v-cloak>
+        <van-nav-bar title="银行转账" left-arrow @click-left="onClickLeft" :fixed="true"></van-nav-bar>
+        <div class="bank" style="margin-top: 46px;">
+            <div class="bank_info">
+                <div>开户行：{{bankInfo.bankName}}</div>
+                <div>收款账户名：{{bankInfo.accountName}}</div>
+                <div style="margin-bottom: .533333rem">账户：{{bankInfo.accountNumber}}</div>
+            </div>
+            <div class="bank_phone">
+                <div class="phone_left">
+                    合计： <span style="font-size:.56rem; color: #FF0046">¥{{total_price}}</span>
+                </div>
+                <van-image style="flex-shrink: 0;" width="2.133333rem" height=".666667rem"
+                    src="./img/bank_transfer_1.png">
+                </van-image>
+            </div>
+            <van-cell-group>
+                <van-cell title="订单编号" :value="item.orderNo"></van-cell>
+                <van-cell :title="address.contactName" :value="address.contactMobile"></van-cell>
+                <div class="bank_address">{{address.fullAddress}}</div>
+            </van-cell-group>
+            <van-button class="bank_button" @click="toOrder">订单列表</van-button>
+        </div>
+    </div>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+    <script src="./js/bank_transfer/index.js"></script>
+</body>
+
+</html>

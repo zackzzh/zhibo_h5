@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>省市区选择</title>
+    <link rel="stylesheet" href="./css/index/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="page" v-cloak>
+        <van-nav-bar title="省市区选择" left-arrow @click-left="onClickLeft"></van-nav-bar>
+    </div>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+    <script src="./js/index/index.js"></script>
+</body>
+
+</html>

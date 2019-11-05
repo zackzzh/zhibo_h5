@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>投诉建议</title>
+    <link rel="stylesheet" href="./css/complaint_advice/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="page" v-cloak>
+        <van-nav-bar title="投诉建议" :fixed="true" left-arrow @click-left="onClickLeft"></van-nav-bar>
+        <div class="complaint_advice" style="margin-top: 56px;">
+            <div class="advice_list">
+                <div class="list_top">选择类型</div>
+                <van-row gutter="20">
+                    <van-col span="6" v-for="(item,index) in suggestionTypeList" :class="{'active':typeId===item.id}">
+                        <span @click.stop="tonext(item)">{{item.name}}</span>
+                    </van-col>
+                </van-row>
+            </div>
+            <div class="advice_remark">
+                <van-cell-group>
+                    <van-field v-model="remark" rows="3" type="textarea"
+                        placeholder="对我们App、服务、物流，使用体验，人设投诉, 或建议都可以告诉我们...">
+                    </van-field>
+                </van-cell-group>
+            </div>
+            <div class="order_upload">
+                <div class="upload_top">上传图片 <span>（最多3张）</span></div>
+                <div class="upload_img">
+                    <van-uploader v-model="fileList" multiple :max-count="3">
+                        <van-image class="commodity_img" slot="thumb" fit="contain" width="2.453333rem"
+                            height="2.453333rem" src="./img/order_detail_1.png">
+                        </van-image>
+                    </van-uploader>
+                </div>
+            </div>
+            <div class="advice_phone">投诉电话: <span style="color:#007D7B;">400-655-6811</span></div>
+            <div class="advice_detail">您的每个投诉建议我们都非常重视</div>
+            <van-button class="advice_button" @click="comfirm">提交</van-button>
+        </div>
+    </div>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+    <script src="./js/complaint_advice/index.js"></script>
+</body>
+
+</html>

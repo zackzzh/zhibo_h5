@@ -1,0 +1,47 @@
+[v-cloak] {
+  display: none;
+}
+html {
+  background: #EFEFF4 !important;
+  flex: 1;
+  align-items: center;
+  font-size: .32rem;
+}
+.van-tab--active {
+  color: #007D7B !important;
+}
+.van-tabs__line {
+  background: #007D7B !important;
+}
+.order {
+  margin-top: .266667rem;
+}
+.order .order_item {
+  background: #fff;
+  padding: .4rem;
+  display: flex;
+  margin-bottom: .266667rem;
+}
+.order .order_item .order_left {
+  margin-right: .266667rem;
+}
+.order .order_item .order_right {
+  width: 100%;
+}
+.order .order_item .order_right .right_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .373333rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+}
+.order .order_item .order_right .right_price {
+  text-align: right;
+  font-size: .4rem;
+  margin-top: .133333rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #009a00;
+}

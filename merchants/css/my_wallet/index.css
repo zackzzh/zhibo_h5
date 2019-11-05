@@ -1,0 +1,91 @@
+[v-cloak] {
+  display: none;
+}
+html {
+  background: #EFEFF4 !important;
+  flex: 1;
+  align-items: center;
+}
+[class*=van-hairline]::after {
+  border: none !important;
+}
+.van-nav-bar {
+  background: #00CFAE !important;
+}
+.van-nav-bar .van-nav-bar__title {
+  color: #fff;
+}
+.van-nav-bar .van-icon,
+.van-nav-bar .van-nav-bar__text {
+  color: #333333 !important;
+}
+.withdrawal .withdrawal_price {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.withdrawal .withdrawal_price .commodity_img {
+  position: relative;
+  z-index: 1;
+}
+.withdrawal .withdrawal_price .price_content {
+  position: absolute;
+  z-index: 2;
+}
+.withdrawal .withdrawal_price .price_content .price_center {
+  display: flex;
+}
+.withdrawal .withdrawal_price .price_content .price_center .price_left {
+  text-align: center;
+}
+.withdrawal .withdrawal_price .price_content .price_center .price_left .price_title {
+  font-size: .32rem;
+  font-family: PingFang SC;
+  font-weight: 300;
+  color: #ffffff;
+}
+.withdrawal .withdrawal_price .price_content .price_center .price_left .price_money {
+  font-size: .866667rem;
+  font-family: Adobe Heiti Std;
+  font-weight: normal;
+  color: #ffffff;
+}
+.withdrawal .withdrawal_price .price_content .price_center .price_mid {
+  width: .026667rem;
+  height: 1.426667rem;
+  background: #8d84ff;
+  opacity: 0.34;
+  margin: 0px 1.066667rem;
+}
+.withdrawal .withdrawal_price .price_button {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  width: 3.4rem;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  text-align: center;
+  line-height: 1.066667rem;
+  height: 1.066667rem;
+  background: #feffff;
+  box-shadow: 0px 1px 10px 0px rgba(187, 188, 212, 0.75);
+  border-radius: .533333rem;
+  font-size: .4rem;
+  font-family: Adobe Heiti Std;
+  font-weight: normal;
+  color: #333333;
+}
+.withdrawal .withdrawal_detail {
+  margin: 0px .266667rem;
+  margin-top: .8rem;
+  font-size: .346667rem;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: .626667rem;
+}
+.withdrawal .withdrawal_detail span {
+  color: #007D7B;
+}

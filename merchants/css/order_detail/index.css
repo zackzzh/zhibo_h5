@@ -1,0 +1,131 @@
+[v-cloak] {
+  display: none;
+}
+html {
+  background: #efeff4 !important;
+  flex: 1;
+  align-items: center;
+  min-height: calc(100vh);
+}
+.page .order_detail {
+  margin-bottom: 2.133333rem;
+}
+.page .order_detail .order_product {
+  background: #fff;
+  padding: .266667rem;
+  display: flex;
+}
+.page .order_detail .order_product .commodity_img {
+  margin-right: .266667rem;
+}
+.page .order_detail .order_product .product_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.page .order_detail .order_product .product_right .right_title {
+  font-size: .426667rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #000000;
+}
+.page .order_detail .order_product .product_right .right_price {
+  font-size: .373333rem;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #9c9c9c;
+}
+.page .order_detail .order_item {
+  background: #fff;
+  padding: .4rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: .373333rem;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+}
+.page .order_detail .order_item .item_label {
+  flex-shrink: 0;
+  width: 3.333333rem;
+  color: #999999;
+}
+.page .order_detail .order_item .van-cell {
+  padding: 0px;
+}
+.page .order_detail .order_item .item_value {
+  flex-shrink: 1;
+  width: 100%;
+  color: #333333;
+}
+.page .order_detail .order_return {
+  background: #fff;
+  padding: .266667rem;
+  font-size: .373333rem;
+}
+.page .order_detail .order_return .item_label {
+  flex-shrink: 0;
+  color: #999999;
+  margin-bottom: 10px;
+}
+.page .order_detail .order_return .item_value {
+  display: flex;
+  align-items: center;
+}
+.page .order_detail .order_upload {
+  background: #fff;
+  padding: 0 .266667rem;
+}
+.page .order_detail .order_upload .upload_top {
+  padding: .266667rem 0;
+  font-size: .373333rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+}
+.page .order_detail .order_upload .upload_top span {
+  font-size: .32rem;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #999999;
+}
+.page .order_detail .order_btn {
+  width: 9.466667rem;
+  height: 1.266667rem;
+  margin-left: .266667rem;
+  background: #007d7b;
+  border-radius: .106667rem;
+  font-size: .426667rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: .666667rem;
+}
+.page .order_detail .item-button {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.page .account_dialog .order_upload {
+  background: #fff;
+  padding: 0 .266667rem;
+}
+.page .account_dialog .order_upload .upload_top {
+  padding: .266667rem 0;
+  font-size: .373333rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+}
+.page .account_dialog .order_upload .upload_top span {
+  font-size: .32rem;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #999999;
+}
+.page .account_dialog .van-dialog__confirm {
+  background: #00C07D;
+}
+.page .van-dialog__header {
+  margin-bottom: 25px;
+}

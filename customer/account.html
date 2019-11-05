@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>结算</title>
+    <link rel="stylesheet" href="./css/account/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="page" v-cloak>
+        <van-nav-bar title="结算" left-arrow @click-left="onClickLeft" :fixed="true"></van-nav-bar>
+        <div class="account" style="margin-top: 46px;">
+            <div class="account_time">
+                剩余付款时间：23小时58分49秒
+            </div>
+            <div class="account_address" v-if="address && address.id" @click="toAddress">
+                <div class="address_left">
+                    <div class="left_top">
+                        <div>{{address.contactName}}</div>
+                        <div>{{address.contactMobile}}</div>
+                    </div>
+                    <div class="left_bottom">{{address.fullAddress}}</div>
+                </div>
+                <!-- <span class="iconfont icon-jiantou1"></span> -->
+                <van-icon name="arrow"></van-icon>
+            </div>
+            <van-cell title="地址" is-link value="添加地址" @click="toAddress" v-else></van-cell>
+            <div class="account_order">
+                <van-image style="flex-shrink: 0" width="2.106667rem" height="2.106667rem"
+                    src="https://img.yzcdn.cn/vant/cat.jpeg">
+                </van-image>
+                <div class="order_right">
+                    <div class="order_title">{{item.title}}</div>
+                    <div class="order_price">¥{{item.priceGoods}}</div>
+                </div>
+            </div>
+            <div class="account_free">
+                <div class="free_left">
+                    <span>代</span>
+                    代购费
+                </div>
+                <div class="free_right" v-if="item.pricePurchase">
+                    ¥{{item.pricePurchase}}
+                </div>
+            </div>
+            <div class="account_service">
+                <div class="service_top">
+                    <div class="top_left">
+                        <van-image style="flex-shrink: 0" width=".586667rem" height=".586667rem"
+                            src="./img/account_1.png">
+                        </van-image>
+                        <span class="left_one">鉴定宝服务</span>
+                        <span class="left_two">¥{{item.priceIdentify}}</span>
+                        <span @click="talk">
+                            <van-icon name="question-o"></van-icon>
+                        </span>
+                    </div>
+                    <div class="top_right">
+                        <van-checkbox v-model="checked" @change="priceIdentifyChange"></van-checkbox>
+                    </div>
+                </div>
+                <div class="service_detail">
+                    您购买的宝贝将发至天宝吧吧，出具GTC证书后再发给您，并由天宝吧吧提供翡翠保A承诺，最高赔付一百万，退货来回运费全部由天宝吧吧承担
+                </div>
+            </div>
+            <van-cell-group>
+                <van-field v-model="item.remark" label="备注" type="textarea" displya="true"
+                    placeholder="如果有特殊要求可备注说明，60字以内" rows="1" autosize>
+                </van-field>
+            </van-cell-group>
+            <div class="account_detail">
+                由天宝提供担保交易，在您确认留货后，工厂才能收到货款，请放心购买。
+            </div>
+            <div class="account_bottom">
+                <div class="bottom_pay">
+                    <van-image style="flex-shrink: 0;margin-right:.266667rem;" width=".493333rem" height=".493333rem"
+                        src="./img/account_2.png">
+                    </van-image>
+                    <van-image style="flex-shrink: 0;margin-right:.266667rem;" width=".493333rem" height=".493333rem"
+                        src="./img/account_3.png">
+                    </van-image>
+                    支持多种支付方式付款
+                </div>
+                <div class="bottom_price">
+                    <div class="price_left">
+                        <span>合计：</span>
+                        <span style="color: #FF0A21;">¥{{totalPrice}}</span>
+                    </div>
+                    <van-button class="button" @click="payShow">付款</van-button>
+                </div>
+            </div>
+            <van-action-sheet v-model="show" :title="'合计：¥' + totalPrice" class="account_action">
+                <div class="pay_cell_div">
+                    <van-radio-group class="pay_group_div" v-model="payRadio">
+                        <van-cell-group>
+                            <van-cell title="微信支付" clickable @click="payRadio = '1'">
+                                <van-image slot="icon" style="flex-shrink: 0;margin-right:.266667rem;"
+                                    width=".866667rem" height=".866667rem" src="./img/account_2.png">
+                                </van-image>
+                                <van-radio slot="right-icon" name="1" checked-color="#01C07B"></van-radio>
+                            </van-cell>
+                            <van-cell title="支付宝支付" clickable @click="payRadio = '2'">
+                                <van-image slot="icon" style="flex-shrink: 0;margin-right:.266667rem;" width=".8rem"
+                                    height=".8rem" src="./img/account_3.png">
+                                </van-image>
+                                <van-radio slot="right-icon" name="2" checked-color="#01C07B"></van-radio>
+                            </van-cell>
+                            <van-cell title="银行转账" clickable @click="payRadio = '3'">
+                                <van-image slot="icon" style="flex-shrink: 0;margin-right:.266667rem;" width=".92rem"
+                                    height=".52rem" src="./img/account_4.png">
+                                </van-image>
+                                <van-radio slot="right-icon" name="3" checked-color="#01C07B"></van-radio>
+                            </van-cell>
+                        </van-cell-group>
+                    </van-radio-group>
+                </div>
+                <div class="action_detail">
+                    货品保真及货运安全由天宝吧吧提供担保
+                </div>
+                <van-button class="button" @click="pay">确认支付</van-button>
+            </van-action-sheet>
+            <van-dialog class="account_dialog" v-model="showAddress" title="" show-cancel-button
+                confirm-button-text="添加地址" confirm-button-color="#fff">
+                <div class="dialog_content">
+                    <van-image style="flex-shrink: 0;margin-bottom: .533333rem" width="1.306667rem" height="1.306667rem"
+                        src="./img/account_5.png">
+                    </van-image>
+                    <div>还没有添加收货地址快去添加吧</div>
+                </div>
+            </van-dialog>
+        </div>
+    </div>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+    <script src="./js/account/index.js"></script>
+</body>
+
+</html>

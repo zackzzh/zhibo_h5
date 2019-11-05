@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>提现</title>
+    <link rel="stylesheet" href="./css/withdrawal/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="main_div" v-cloak>
+        <van-nav-bar :fixed="true" title="提现" left-arrow @click-left="onClickLeft" right-text="提现明细"
+            @click-right="onClickRight">
+        </van-nav-bar>
+        <div class="withdrawal" style="margin-top: 56px;">
+            <div class="withdrawal_money">账户可提现金额
+                <span v-if="balanceInfo.usableAmount">{{balanceInfo.usableAmount}}</span>
+                <span v-else>0</span>
+                元</div>
+            <van-field v-model="amount" placeholder="请输入提现金额" type="number" @input="accountValue"></van-field>
+            <div class="withdrawal_bank" v-if="bankInfo.accountName">
+                <div> {{bankInfo.accountName}}</div>
+                <div>{{bankInfo.bankName}}</div>
+                <div>{{bankInfo.accountNumber}}</div>
+            </div>
+            <div class="withdrawal_detail">
+                <div> 注意：</div>
+                <div>1、2个工作日内到账，节假日顺延；</div>
+                <div>2、每日只能提现一次；</div>
+                <div>3、提现时银行会收取一定的手续费；</div>
+            </div>
+            <van-button @click="apply">确定提现</van-button>
+        </div>
+    </div>
+    <script src="./js/withdrawal/index.js"></script>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+</body>
+
+</html>

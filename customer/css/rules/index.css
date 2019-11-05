@@ -1,0 +1,13 @@
+[v-cloak] {
+  display: none;
+}
+html {
+  background: #EFEFF4 !important;
+  flex: 1;
+  align-items: center;
+}
+.content {
+  background: #fff;
+  padding: .266667rem;
+  margin-top: 46px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>提现记录</title>
+    <link rel="stylesheet" href="./css/withdrawal_record/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="main_div" v-cloak>
+        <van-nav-bar title="提现记录" left-arrow @click-left="onClickLeft" :fixed="true"></van-nav-bar>
+        <div class="main_top" style="margin-top: 46px;">
+            <div class="top-one">
+                总提现金额（元）
+            </div>
+            <div class="top-two" v-if="balanceInfo.disableAmount">
+                {{balanceInfo.disableAmount}}
+            </div>
+            <div class="top-two" v-else>
+                0
+            </div>
+            <div class="top-three">
+                共计{{recordList.length}}笔
+            </div>
+        </div>
+        <div class="recoed_item" v-for="(item,index) in recordList">
+            <div class="item_top">
+                <div class="item_status">
+                    <span v-if="item.status=='0'">待审核</span>
+                    <span v-if="item.status=='1'">审核通过</span>
+                    <span v-if="item.status=='2'">审核不通过</span>
+                    <span v-if="item.status=='3'">转账成功</span>
+                    <span v-if="item.status=='4'">转账不成功</span>
+                </div>
+                <div class="item_time">{{item.createtime}}</div>
+            </div>
+            <div class="item_bottom">
+                <div class="item_price">
+                    <span v-if="item.status=='3' || item.status=='1' || item.status=='0'"
+                        style="color: #009A00;">+{{item.amount}}（元）</span>
+                    <span v-if="item.status=='2' || item.status=='4'" style="color:red;">-{{item.amount}}（元）</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/withdrawal_record/index.js"></script>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+</body>
+
+</html>

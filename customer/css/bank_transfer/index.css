@@ -1,0 +1,58 @@
+[v-cloak] {
+  display: none;
+}
+html {
+  background: #efeff4 !important;
+  flex: 1;
+  align-items: center;
+  min-height: calc(100vh);
+}
+.page {
+  padding-bottom: 1.6rem;
+}
+.page .bank .bank_info {
+  padding: .333333rem .266667rem;
+  background: #ffffff;
+  font-size: .4rem;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  border-bottom: 1px solid #e5e5e5;
+}
+.page .bank .bank_phone {
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 .266667rem;
+  background: #ffffff;
+  margin-bottom: .8rem;
+}
+.page .bank .bank_phone .phone_left {
+  font-size: .4rem;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+.page .bank .bank_address {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 15px;
+  overflow: hidden;
+  color: #323233;
+  font-size: 14px;
+  background-color: #fff;
+  line-height: .64rem;
+  color: #969799;
+}
+.page .bank .bank_button {
+  width: 9.466667rem;
+  margin-left: .266667rem;
+  background: #007D7B;
+  margin-top: .48rem;
+  font-size: .426667rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #ffffff;
+}

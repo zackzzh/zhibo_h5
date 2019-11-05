@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>我的钱包</title>
+    <link rel="stylesheet" href="./css/my_wallet/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="main_div" v-cloak>
+        <van-nav-bar title="我的钱包" left-arrow @click-left="onClickLeft" right-text="钱包明细" @click-right="onClickRight"
+            :fixed="true">
+        </van-nav-bar>
+        <div class="withdrawal" style="margin-top: 46px;">
+            <div class="withdrawal_price">
+                <van-image style="margin-bottom: 10px;" class="commodity_img" slot="thumb" fit="contain" width="100%"
+                    height="auto" src="./img/withdrawal_bg.png">
+                </van-image>
+                <div class="price_content">
+                    <div class="price_center">
+                        <div class="price_left" @click="toWithdrawal">
+                            <div class="price_title">可以提现余额（元）</div>
+                            <div class="price_money" v-if="balanceInfo.usableAmount">{{balanceInfo.usableAmount}}</div>
+                            <div class="price_money" v-else>0</div>
+                        </div>
+                        <div class="price_mid">
+                        </div>
+                        <div class="price_left" @click="onClickRight">
+                            <div class="price_title">待结算金额 （元）</div>
+                            <div class="price_money" v-if="balanceInfo.settlingAmount">{{balanceInfo.settlingAmount}}
+                            </div>
+                            <div class="price_money" v-else>0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price_button" @click="toWithdrawal">
+                    提现
+                </div>
+            </div>
+            <div class="withdrawal_detail">
+                买家付款，利润进入“待结算金额”；卖家确认收货，利润从“待结算金额”“计入“可提现金额”中，您可以随时申请提现。
+                <span @click="rules">详细规则>></span>
+            </div>
+        </div>
+    </div>
+    <script src="./js/my_wallet/index.js"></script>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+</body>
+
+</html>

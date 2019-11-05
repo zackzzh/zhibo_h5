@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>钱包明细</title>
+    <link rel="stylesheet" href="./css/wallet_detail/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="main_div" v-cloak>
+        <van-nav-bar title="钱包明细" left-arrow @click-left="onClickLeft" :fixed="true">
+        </van-nav-bar>
+        <van-tabs v-model="active" swipe-threshold="2" sticky animated @click="tabs" v-if="title.length>0"
+            style="margin-top: 46px;">
+            <van-tab :title="d" v-for="(d, index) in title" :key="index">
+                <div class="order">
+                    <div class="order_item" v-for="(item,index) in orderList">
+                        <div class="order_left">
+                            <van-image class="commodity_img" slot="thumb" fit="contain" width="1.893333rem"
+                                height="1.893333rem" :src="d.orderPicGoods">
+                            </van-image>
+                        </div>
+                        <div class="order_right">
+                            <div class="right_top" style="margin-bottom: 10px;">
+                                <div>{{item.orderTitle}}</div>
+                            </div>
+                            <div class="right_top">
+                                <div>{{item.createtime}}</div>
+                            </div>
+                            <div style="text-align: right; color:red; font-size: .4rem;">
+                                -{{item.serviceFee}}
+                            </div>
+                            <div class="right_price">
+                                +{{item.merchantAmount}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </van-tab>
+        </van-tabs>
+    </div>
+    <script src="./js/wallet_detail/index.js"></script>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+</body>
+
+</html>

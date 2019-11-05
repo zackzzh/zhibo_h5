@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Expires" content="0" />
+    <title>编辑地址</title>
+    <link rel="stylesheet" href="./css/address_edit/index.css" />
+    <link href="./iconfont/iconfont.css" rel="stylesheet">
+    <link href='./vant/index.css' rel='stylesheet'>
+    <script src='./vue/vue.js'></script>
+    <script src='./vant/vant.min.js'></script>
+    <script src="./config/flexible.js"></script>
+</head>
+
+<body>
+    <div id="friend" class="main_div" 　v-cloak>
+        <van-nav-bar title="收货地址" left-arrow @click-left="onClickLeft" :fixed="true"></van-nav-bar>
+        <div class="card_div" style="margin-top: 46px;">
+            <van-cell-group class="card_cell_group">
+                <van-field v-model="addressInfo.contactName" label="收货人" placeholder="请输入收货人">
+                </van-field>
+                <van-field v-model="addressInfo.contactMobile" type="tel" label="电话号码" placeholder="请输入电话号码">
+                </van-field>
+                <van-field v-model="addressInfo.provinceName" label="所在省" placeholder="请选择所在省" @click="provinceHandle"
+                    readonly is-link></van-field>
+                <van-field v-model="addressInfo.cityName" label="所在市" placeholder="请选择所在市" @click="cityHandle" readonly
+                    is-link></van-field>
+                <van-field v-model="addressInfo.areaName" label="所在区" placeholder="请选择所在区" @click="areaHandle" readonly
+                    is-link></van-field>
+                <van-field v-model="addressInfo.streetName" label="所在街道" placeholder="请选择所在街道" @click="streeHandle"
+                    readonly is-link></van-field>
+                <van-field v-model="addressInfo.address" label="详细地址" type="textarea" placeholder="请输入详细地址" rows="1"
+                    autosize />
+            </van-cell-group>
+            <van-checkbox class="checkbox" v-model="checked" label-position="left" checked-color="#007D7B"
+                icon-size=".533333rem" @click="onClick">
+                设为默认
+            </van-checkbox>
+        </div>
+        <!-- 底部弹出层 -->
+        <!-- 省 -->
+        <van-action-sheet v-model="isProvince" title="请选择所在省" :actions="actionsProvince" @select="onProvinceSelect">
+        </van-action-sheet>
+        <!-- 城市 -->
+        <van-action-sheet v-model="isCity" title="请选择所在城市" :actions="actionsCity" @select="onCitySelect">
+        </van-action-sheet>
+        <!-- 区 -->
+        <van-action-sheet v-model="isArea" title="请选择所在区" :actions="actionsArea" @select="onAreaSelect">
+        </van-action-sheet>
+        <!-- 街道 -->
+        <van-action-sheet v-model="isStree" title="请选择所在街道" :actions="actionsStree" @select="onStreeSelect">
+        </van-action-sheet>
+        <div class="add_btn_div">
+            <van-button class="add_btn" type="primary" @click="onSubmit">保存并使用</van-button>
+        </div>
+    </div>
+    <script src="./config/area.js"></script>
+    <script src="./js/address_edit/index.js"></script>
+    <script src="./api/axios.min.js"></script>
+    <script src="./api/index.js"></script>
+    <script src="./api/api.js"></script>
+    <script src="./config/routers.js"></script>
+</body>
+
+</html>

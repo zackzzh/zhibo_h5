@@ -1,0 +1,242 @@
+[v-cloak] {
+  display: none;
+}
+html {
+  background: #efeff4 !important;
+  flex: 1;
+  align-items: center;
+  min-height: calc(100vh);
+}
+.page {
+  padding-bottom: 1.6rem;
+}
+.page .account .account_time {
+  font-size: .373333rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #cd5836;
+  text-align: center;
+  background: #F8E3DE;
+  height: 1.066667rem;
+  line-height: 1.066667rem;
+}
+.page .account .account_address {
+  padding: .333333rem .266667rem;
+  background: #01C07B;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: .346667rem;
+}
+.page .account .account_address .address_left {
+  flex: 1 100%;
+  margin-right: .266667rem;
+}
+.page .account .account_address .address_left .left_top {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin-bottom: .266667rem;
+}
+.page .account .account_address .icon-jiantou1 {
+  flex-shrink: 0;
+}
+.page .account .account_order {
+  margin-top: .266667rem;
+  padding: .266667rem .266667rem;
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.page .account .account_order .order_right {
+  flex: 1 100%;
+  margin-left: .306667rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.page .account .account_order .order_right .order_title {
+  font-size: .346667rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: .133333rem;
+}
+.page .account .account_order .order_right .order_button {
+  padding: 0px;
+  width: 2.666667rem;
+  height: .453333rem;
+  border: 0.026667rem solid #01c07b;
+  border-radius: .133333rem;
+  font-size: .2rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #01c07b;
+  line-height: .4rem;
+}
+.page .account .account_order .order_right .order_price {
+  font-size: .453333rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #007d7b;
+}
+.page .account .account_free {
+  background: #fff;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 .266667rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.page .account .account_free .free_left {
+  font-size: .373333rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+}
+.page .account .account_free .free_left span {
+  display: inline-block;
+  width: .426667rem;
+  height: .426667rem;
+  text-align: center;
+  background: #007d7b;
+  font-size: .293333rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #ffffff;
+}
+.page .account .account_free .free_right {
+  color: #007d7b;
+}
+.page .account .account_service {
+  background: #fff;
+  padding: .266667rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.page .account .account_service .service_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .266667rem;
+}
+.page .account .account_service .service_top .top_left {
+  font-size: .373333rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  display: flex;
+  align-items: center;
+}
+.page .account .account_service .service_top .top_left .left_one {
+  margin-left: .213333rem;
+}
+.page .account .account_service .service_top .top_left .left_two {
+  color: #08B97B;
+  margin: 0 .213333rem;
+}
+.page .account .account_service .service_detail {
+  font-size: .32rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #000000;
+  line-height: .48rem;
+  opacity: 0.54;
+}
+.page .account .account_detail {
+  padding: 0 .266667rem;
+  margin-top: .266667rem;
+  font-size: .32rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #000000;
+  line-height: .48rem;
+  opacity: 0.54;
+}
+.page .account .account_bottom {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+}
+.page .account .account_bottom .bottom_pay {
+  display: flex;
+  align-items: center;
+  padding: .133333rem .266667rem;
+  font-size: .32rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #000000;
+  line-height: .48rem;
+  opacity: 0.54;
+  border-bottom: 1px solid #e5e5e5;
+}
+.page .account .account_bottom .bottom_price {
+  padding-left: .266667rem;
+  height: 1.28rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .493333rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+}
+.page .account .account_bottom .bottom_price .button {
+  width: 3.306667rem;
+  height: 1.306667rem;
+  background: #007d7b;
+  color: #ffffff;
+}
+.page .account .account_action .pay_cell_div {
+  border-radius: .133333rem;
+  background: #FFFFFF;
+  margin-bottom: .933333rem;
+}
+.page .account .account_action .pay_cell_div .van-cell {
+  align-items: center;
+}
+.page .account .account_action .pay_cell_div .pay_group_div .van-cell-group {
+  border-radius: .133333rem;
+}
+.page .account .account_action .pay_cell_div .pay_group_div .van-cell-group .van_cell_fun,
+.page .account .account_action .pay_cell_div .pay_group_div .van-cell-group .van-icon-wechat {
+  font-size: .666667rem;
+  color: #3FB232;
+}
+.page .account .account_action .pay_cell_div .pay_group_div .van-cell-group .van-icon-card {
+  font-size: .666667rem;
+  color: #00508F;
+}
+.page .account .account_action .action_detail {
+  width: 100%;
+  font-size: .32rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  opacity: 0.62;
+  margin-bottom: .346667rem;
+  text-align: center;
+}
+.page .account .account_action .button {
+  margin-left: .266667rem;
+  margin-bottom: .266667rem;
+  width: 9.466667rem;
+  background: #007D7B;
+  font-size: .426667rem;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #ffffff;
+}
+.page .account .account_dialog .dialog_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: .933333rem 2rem;
+  text-align: center;
+}
+.page .account .account_dialog .van-dialog__confirm {
+  background: #00C07D;
+}

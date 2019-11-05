@@ -1,0 +1,50 @@
+[v-cloak] {
+  display: none;
+}
+html {
+  background: #EFEFF4 !important;
+  flex: 1;
+  align-items: center;
+  font-size: .32rem;
+}
+.withdrawal {
+  padding: 0 .4rem;
+}
+.withdrawal .withdrawal_money {
+  margin: .266667rem 0;
+  font-size: .4rem;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+.withdrawal .withdrawal_bank {
+  margin-top: .266667rem;
+  margin-bottom: .4rem;
+  background: #fff;
+  padding: .466667rem;
+  font-size: .4rem;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #007d7b;
+  line-height: .573333rem;
+}
+.withdrawal .withdrawal_detail {
+  font-size: .293333rem;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: .493333rem;
+  margin-bottom: .6rem;
+}
+.withdrawal .van-button {
+  width: 9.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+  background: #007d7b;
+  border-radius: .133333rem;
+  font-size: .453333rem;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #fefefe;
+}
